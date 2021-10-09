@@ -35,6 +35,12 @@ time curl --request POST  --data-binary '73ceea5c2c2c67f359c2896815d452bf413565a
 ```
 
 ## If you use this template, you might want to implement TLS and/or put this behind a proxy that handles the TLS.
+
+### TLS with uvicorn
+```
+uvicorn salsa_falcon:app --log-level=trace --host=0.0.0.0 --port=8000 --ssl-certfile /etc/cert.pem --ssl-keyfile /etc/key.pem
+```
+
 https://pypi.org/project/falcon-require-https/
 
 ## Add more routes, auth, storage, and any middleware easily with Falcon.
