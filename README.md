@@ -1,5 +1,7 @@
 # salsa_falcon
-template for falcon asgi api with pycryptodome
+A template for falcon asgi api with pycryptodome.
+
+The template uses pycryptodome Salsa20 and reads the POST data as a stream.
 
 
 # example client request with cURL
