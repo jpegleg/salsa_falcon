@@ -4,7 +4,7 @@ A template for falcon asgi api with pycryptodome.
 The template uses pycryptodome Salsa20 and reads the POST data as a stream.
 
 
-## example client request with cURL
+## example client requests with cURL
 
 ### send in the data file to be encrypted and write out 
 ```
