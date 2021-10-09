@@ -5,10 +5,11 @@ from Crypto.Cipher import Salsa20
 
 # There is no message authenticity with this, just fast Salsa20.
 # The symmetric key is hard coded in this template.
-# If using in the real world, change the key and 
+# If using in the real world, change the key and
 # consider HMAC.
 
 class SalfalXResource:
+    """ Encrypt the POSTed data or respond to GET. """
     async def on_get(self, req, resp):
         """Handles GET requests for health checks."""
         resp.status = falcon.HTTP_200
@@ -23,6 +24,12 @@ class SalfalXResource:
         resp.text = binascii.hexlify(ciphertext)
 
 class SalfalDResource:
+    """ Decrypt the POSTed data or respond to GET. """
+    async def on_get(self, req, resp):
+        """Handles GET requests for health checks."""
+        resp.status = falcon.HTTP_200
+        resp.content_type = falcon.MEDIA_TEXT
+        resp.text = 'Salsa Falcon HEALTHY'
     async def on_post(self, req, resp):
         """Handles POST requests for decryption."""
         datac = await req.stream.read()
