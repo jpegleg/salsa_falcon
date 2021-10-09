@@ -34,7 +34,7 @@ time curl --request POST  --data-binary 'I am encrypting this message.' http://l
 time curl --request POST  --data-binary '73ceea5c2c2c67f359c2896815d452bf413565a9d13d0736cc54aff6bb71e3bb5377f16fe213' http://localhost:8000/api/decrypt/0 | xxd -r -p
 ```
 
-## If you use this template, you might want to implement TLS and/or put this behind a proxy that handles the TLS.
+## If you use this template, you probably want to implement TLS with it as well:
 
 ### TLS with uvicorn
 ```
