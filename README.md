@@ -10,7 +10,7 @@ The template uses pycryptodome Salsa20 and reads the POST data as a stream.
 
 ### send in some text to a remote salsa falcon over https
 ```
-curl -X POST --data 'what up, encrypt this real quick' https://myremotefalconservice:8009/api/encrypt/0
+curl -X POST --data 'what up, encrypt this real quick' https://myremotefalconservice:8000/api/encrypt/0
 ```
 
 ### Using "time" to measure the time for the cURL, and some more verbose cURL options, non-https local listener
