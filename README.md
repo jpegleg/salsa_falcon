@@ -1,9 +1,47 @@
 # salsa_falcon
-A template for falcon asgi api with pycryptodome.
+A template for falcon asgi api with pycryptodome. All encryption software is from pycryptodome, and in regards to tls, uvicorn.
+
+### https://www.pycryptodome.org/en/latest/
+
+### https://www.uvicorn.org/
+
+### You can of course swap out pycryptodome and/or uvicorn for other components.
 
 The template uses pycryptodome Salsa20 and reads the POST data as a stream.
 
+The template outputs as serialized hex for ease of transport. If you need to optimize the network usage and speed,
+or because you want the raw plaintext/original in the decrypt api output, you can skip the hex encode there.
 
+Example generating a 32 byte string manually:
+
+```
+cat /dev/urandom | head -n1 | xxd -p | cut -c1-32 | head -n1
+```
+
+
+
+Example function:
+
+```
+    async def on_post(self, req, resp):
+        """Handles POST requests for encryption."""
+        datab = await req.stream.read()
+        key = b'$my_32byte_keygoeshere'
+        cipher = Salsa20.new(key)
+        ciphertext = cipher.nonce + cipher.encrypt(datab)
+        resp.text = binascii.hexlify(ciphertext)
+```
+
+And then we can set custom routes to different classes etc.
+
+Here we are changing the decrypt route to a differing URI context, something you may want in some situations.
+
+```
+encrypt = SalfalXResource()
+decrypt = SalfalDResource()
+app.add_route('/api/encrypt/0', encrypt)
+app.add_route('/api/decrypt/c6fbe4491f2011cc1d5', decrypt)
+```
 
 
 ## example client requests with cURL
