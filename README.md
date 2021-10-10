@@ -13,7 +13,7 @@ The template uses pycryptodome Salsa20 and reads the POST data as a stream.
 curl -X POST --data 'what up, encrypt this real quick' https://myremotefalconservice:8009/api/encrypt/0
 ```
 
-### Using "time" to measure the time for the cURL, and some explicit flags, non-https local listener
+### Using "time" to measure the time for the cURL, and some more verbose cURL options, non-https local listener
 ### Note that both --data-binary and --data will work with salsa falcon.
 
 ### send in the data file to be encrypted and write out 
