@@ -52,7 +52,7 @@ curl -X POST --data 'what up, encrypt this real quick' https://myremotefalconser
 ```
 
 ### Using "time" to measure the time for the cURL, and some more verbose cURL options, non-https local listener
-### Note that both --data-binary and --data will work with salsa falcon.
+### Note that both --data-binary and --data are supported.
 
 ### send in the data file to be encrypted and write out 
 ```
