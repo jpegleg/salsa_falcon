@@ -20,7 +20,7 @@ cat /dev/urandom | head -n10 | xxd -p | tr -d '\n' | cut -c1-32
 
 
 
-Example function:
+Example on_post function in Falcon:
 
 ```
     async def on_post(self, req, resp):
