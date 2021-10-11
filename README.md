@@ -15,7 +15,7 @@ or because you want the raw plaintext/original in the decrypt api output, you ca
 Example generating a 32 byte string manually:
 
 ```
-cat /dev/urandom | head -n1 | xxd -p | cut -c1-32 | head -n1
+cat /dev/urandom | head -n10 | xxd -p | cut -c1-32 | head -n1
 ```
 
 
