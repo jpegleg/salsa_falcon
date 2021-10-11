@@ -12,7 +12,7 @@ The template uses pycryptodome Salsa20 and reads the POST data as a stream.
 The template outputs as serialized hex for ease of transport. If you need to optimize the network usage and speed,
 or because you want the raw plaintext/original in the decrypt api output, you can skip the hex encode there.
 
-Example generating a 32 byte string manually:
+Example generating a 32 byte (256 bit) string manually:
 
 ```
 cat /dev/urandom | head -n10 | xxd -p | tr -d '\n' | cut -c1-32 
