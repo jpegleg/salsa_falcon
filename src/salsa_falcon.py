@@ -41,7 +41,7 @@ class SalsaHexDecryptResource:
         plaintext = cipher.decrypt(ciphertext)
         resp.text = binascii.hexlify(plaintext)
 
- class SalsaEncryptResource:
+class SalsaEncryptResource:
     """ Encrypt the POSTed data or respond to GET. """
     async def on_get(self, req, resp):
         """Handles GET requests for health checks."""
