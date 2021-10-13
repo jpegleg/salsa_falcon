@@ -34,6 +34,8 @@ Example on_post function in Falcon:
 
 And then we can set custom routes to different classes etc.
 
+The template has 4 routes, two sets of encrypt and decrypt methods, serialized hex format or raw data.
+
 Here we are changing the decrypt route to a differing URI context, something you may want in some situations.
 
 ```
@@ -62,22 +64,27 @@ time curl --request POST  --data-binary '@anything.dat' http://localhost:8000/ap
 
 ### send in the data file to be decrypted
 ```
-time curl --request POST --data-binary '@anything.dat.asc' http://localhost:8000/api/decrypt/0 -o anything.dat
+time curl -X POST --data-binary '@anything.dat.asc' http://localhost:8000/api/decrypt/0 -o anything.dat
 ```
 
 ### send in the data file and overwrite it with the encrypted version
 ```
-time curl --request POST  --data-binary '@anything.dat' http://localhost:8000/api/encrypt/0 -o anything.dat
+time curl -X POST  --data-binary '@anything.dat' http://localhost:8000/api/encrypt/0 -o anything.dat
 ```
 
 ### use text in arg instead of file as input
 ```
-time curl --request POST  --data-binary 'I am encrypting this message.' http://localhost:8000/api/encrypt/0 -o encryptedinput.asc
+time curl -X POST  --data-binary 'I am encrypting this message.' http://localhost:8000/api/encrypt/0 -o encryptedinput.asc
+```
+
+### write to raw binary by calling that URI context route
+```
+time curl -X POST  --data-binary 'I am encrypting this message.' http://localhost:8000/api/encrypt/1 -o encryptedinput.asc
 ```
 
 ### decrypt from input and print out plaintext instead of writing it to a file
 ```
-time curl --request POST  --data-binary '73ceea5c2c2c67f359c2896815d452bf413565a9d13d0736cc54aff6bb71e3bb5377f16fe213' http://localhost:8000/api/decrypt/0 | xxd -r -p
+time curl -X POST  --data-binary '73ceea5c2c2c67f359c2896815d452bf413565a9d13d0736cc54aff6bb71e3bb5377f16fe213' http://localhost:8000/api/decrypt/0 | xxd -r -p
 ```
 
 ## If you use this template, you probably want to implement TLS with it as well:
