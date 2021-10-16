@@ -99,3 +99,8 @@ https://pypi.org/project/falcon-require-https/
 ## Add more routes, auth, storage, and any middleware easily with Falcon.
 
 https://falconframework.org/
+
+
+## Also see yaml_dip, a salsa_falcon client template
+
+https://github.com/jpegleg/yaml_dip 
