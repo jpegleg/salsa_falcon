@@ -1,0 +1,26 @@
+protean_build() {
+  pip install --upgrade pip
+  pip install anyio
+  pip install asgiref
+  pip install certifi
+  pip install charset-normalizer
+  pip install click
+  pip install falcon
+  pip install h11
+  pip install httpcore
+  pip install httpx
+  pip install idna
+  pip install pycryptodome
+  pip install rfc3986
+  pip install sniffio
+  pip install uvicorn
+  pip freeze > updated_requirements.txt
+}
+
+protean_test() {
+  docker container ls | grep falcon | awk '{print $1}' | while read line; do
+    docker stop  $line
+  done
+  docker run -d -it --restart unless-stopped "localhost:5000/salsa_falcon:test"
+  curl localhost:8000/api/encrypt/0 | grep "Salsa Falcon HEALTHY" || echo "######---->>> build failed"
+}
