@@ -20,7 +20,7 @@ protean_build() {
 }
 
 protean_test() {
-  docker container ls | grep falcon | awk '{print $1}' | while read line; do
+  docker container ls | grep 8000 | awk '{print $1}' | while read line; do
     docker stop  $line
   done
   docker run -d -it --restart unless-stopped -p 8000:8000 "localhost:5000/salsa_falcon:test" || echo "######---->>> build failed - failed to run container"
