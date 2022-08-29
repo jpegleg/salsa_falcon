@@ -1,22 +1,23 @@
 protean_build() {
-  # commented out this idea for now
-  #pip install --upgrade pip
-  #pip install anyio
-  #pip install asgiref
-  #pip install certifi
-  #pip install charset-normalizer
-  #pip install click
-  #pip install falcon
-  #pip install h11
-  #pip install httpcore
-  #pip install httpx
-  #pip install idna
-  #pip install pycryptodome
-  #pip install rfc3986
-  #pip install sniffio
-  #pip install uvicorn
-  #pip freeze > updated_requirements.txt
-  echo "No build steps for salsa_falcon."
+  rm -rf venv
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install --upgrade pip
+  pip install anyio
+  pip install asgiref
+  pip install certifi
+  pip install charset-normalizer
+  pip install click
+  pip install falcon
+  pip install h11
+  pip install httpcore
+  pip install httpx
+  pip install idna
+  pip install pycryptodome
+  pip install rfc3986
+  pip install sniffio
+  pip install uvicorn
+  pip freeze > updated_requirements.txt
 }
 
 protean_test() {
