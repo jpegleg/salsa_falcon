@@ -24,6 +24,7 @@ protean_test() {
     docker stop  $line
   done
   docker run -d -it --restart unless-stopped -p 8000:8000 "localhost:5000/salsa_falcon:test" || echo "######---->>> build failed - failed to run container"
+  sleep 5
   curl localhost:8000/api/encrypt/0 | grep "Salsa Falcon HEALTHY" || echo "######---->>> build failed - healthcheck failed"
   trivy image "localhost:5000/salsa_falcon:test" > ../salsa_falcon-trivy-report_$(date +%Y%m%d%H%M%S).txt
 }
