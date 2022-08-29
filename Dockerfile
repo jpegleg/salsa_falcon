@@ -1,5 +1,5 @@
-# Salsa Falcon v0.0.1 Dockerfile
-FROM python:3.10.0-slim-buster
+# Salsa Falcon v0.0.2 Dockerfile
+FROM python:3.10-slim-bullseye
 RUN mkdir /var/lib/salsa_falcon
 COPY src/* /var/lib/salsa_falcon/
 RUN cd /var/lib/salsa_falcon && pip install -r requirements.txt
