@@ -1,7 +1,7 @@
 protean_build() {
-  rm -rf venv
-  python3 -m venv venv
-  source venv/bin/activate
+  rm -rf ../salsa_falcon_venv
+  python3 -m venv ../salsa_falcon_venv
+  source ../salsa_falcon_venv/bin/activate
   pip install --upgrade pip
   pip install anyio
   pip install asgiref
@@ -17,7 +17,7 @@ protean_build() {
   pip install rfc3986
   pip install sniffio
   pip install uvicorn
-  pip freeze > updated_requirements.txt
+  pip freeze > ../salsa_falcon_updated_requirements.txt
 }
 
 protean_test() {
